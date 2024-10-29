@@ -1,7 +1,8 @@
 {
   "name": "nexo-deck-swiper",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
+  "description": "React.js tinder-like swipeable component",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/types/index.d.ts",
