@@ -10,9 +10,6 @@
     "README.md",
     "LICENSE"
   ],
-  "sideEffects": [
-    "**/*.css"
-  ],
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -30,6 +27,17 @@
   "repository": "https://github.com/kanakkholwal/nexo-deck-swiper",
   "bugs": "https://github.com/kanakkholwal/nexo-deck-swiper/issues",
   "author": "Kanak Kholwal (@kanakkholwal)",
+
+  "keywords": [
+    "react",
+    "tinder",
+    "swipe",
+    "swipeable",
+    "card",
+    "deck",
+    "swiper",
+    "swipy"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

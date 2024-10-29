@@ -1,50 +1,89 @@
-# React + TypeScript + Vite
+# Nexo Deck Swiper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![NPM](https://img.shields.io/npm/v/nexo-deck-swiper.svg)](https://www.npmjs.com/package/nexo-deck-swiper) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Currently, two official plugins are available:
+This is a simple React module that introduces a tinder-like swipeable component.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Preview](https://media.giphy.com/media/US0kvefmSueoiIpZwU/giphy.gif)
 
-## Expanding the ESLint configuration
+<!-- ## Preview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Online example [here](https://). -->
 
-- Configure the top-level `parserOptions` property like this:
+## Install
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+You can use `yarn` or `npm`.
+
+
+### Yarn
+
+```bash
+yarn add nexo-deck-swiper
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### npm
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install --save nexo-deck-swiper
 ```
+
+## Usage
+
+```
+import * as React from 'react';
+
+import { Swipeable, direction } from 'nexo-deck-swiper';
+
+const Component = () => {
+  const handleOnSwipe = (swipeDirection) => {
+    if (swipeDirection === direction.RIGHT) {
+      // handle right swipe
+      return;
+    }
+
+    if (swipeDirection === direction.LEFT) {
+      // handle left swipe
+      return;
+    }
+  }
+
+  return (
+    <Swipeable onSwipe={handleOnSwipe}>
+      <div className="card">
+        Your card content here
+      </div>
+    </Swipeable>
+  );
+};
+
+export default Component;
+```
+
+## Props
+
+Name | Type | Required | Default value | Description
+:--- | :--- | :--- | :--- | :---
+`children` | `React.ReactChild` | _required_ | - | component that will be swipeable
+`onBeforeSwipe` | `(forceSwipe, cancelSwipe, direction) => void` | _optional_ | `undefined` | callback executed on swipe start
+`onSwipe` | `(direction) => void` | _optional_ | `undefined` | callback executed on swipe end
+`onAfterSwipe` | `() => void` | _optional_ | `undefined` | callback executed right after onSwipe end
+`onOpacityChange` | `(opacity) => void` | _optional_ | `undefined` | callback executed when the card opacity changes on swipe
+`wrapperHeight` | `string` | _optional_ | `100%` | `height` prop for swipeable wrapper
+`wrapperWidth` | `string` | _optional_ | `100%` | `width` prop for swipeable wrapper
+`swipeThreshold` | `number` | _optional_ | `120` | offset in px swiped to consider as swipe
+`fadeThreshold` | `number` | _optional_ | `40` | offset when opacity fade should start
+`renderButtons` | `({right, left}) => React.Component` | _optional_ | `undefined` | function to render buttons to force swipes
+
+## Contributing
+
+Pull requests are welcome! If you have any feedback, issue or suggestion, feel free to open [a new issue](https://github.com/jungsoft/nexo-deck-swiper/issues/new) so we can talk about it 💬.
+
+## License
+
+MIT
+
+## Special Thanks
+
+Thanks to [goncy](https://github.com/goncy/) for the first version of this lib.
+
+Made with ❤️ by [Pedro Bini](https://github.com/pedro-lb/) @ [Jungsoft](https://jungsoft.io/).
