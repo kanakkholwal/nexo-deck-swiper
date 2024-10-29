@@ -3,11 +3,11 @@
 import * as React from 'react';
 import { animated, useSpring } from 'react-spring';
 
-import { EventReturnType, EventType } from '../types';
-import { SwipeableState, SwipeableWrapperProps } from './wrapper';
+import { EventReturnType, EventType } from '../types.ts';
+import { SwipeableState, SwipeableWrapperProps } from './wrapper.tsx';
 
-import { DirectionEnum } from '../constants';
-import { getOpacity } from '../utils';
+import { DirectionEnum } from '../constants.ts';
+import { getOpacity } from '../utils.ts';
 
 export interface SwipeableProps extends SwipeableWrapperProps {
     handleForceSwipe: (direction: DirectionEnum) => void,

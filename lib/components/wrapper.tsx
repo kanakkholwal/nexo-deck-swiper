@@ -1,16 +1,14 @@
 "use client";
 import * as React from 'react';
 
-import { DirectionEnum } from '../constants';
-import type { EventType, EventReturnType } from "../types";
-import { getEvent } from '../utils.ts';
-
-import {
+import { DirectionEnum } from '../constants.ts';
+import type { EventType, EventReturnType } from "../types.ts";
+import { getEvent,
     getDirection,
     getLimitOffset,
     getOffset,
     withX,
-} from '../utils';
+} from '../utils.ts';
 
 import Swipeable from './index.tsx';
 
