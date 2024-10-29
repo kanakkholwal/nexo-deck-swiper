@@ -24,10 +24,12 @@
     "directory": "dist"
   },
   "homepage": "https://github.com/kanakkholwal/nexo-deck-swiper#readme",
-  "repository": "https://github.com/kanakkholwal/nexo-deck-swiper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanakkholwal/nexo-deck-swiper.git"
+  },
   "bugs": "https://github.com/kanakkholwal/nexo-deck-swiper/issues",
   "author": "Kanak Kholwal (@kanakkholwal)",
-
   "keywords": [
     "react",
     "tinder",
@@ -64,8 +66,8 @@
     "vite": "^5.4.9"
   },
   "peerDependencies": {
-  "react": "^18.3.1",
-  "react-dom": "^18.3.1",
-  "vite-plugin-dts": "^4.3.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite-plugin-dts": "^4.3.0"
   }
 }
