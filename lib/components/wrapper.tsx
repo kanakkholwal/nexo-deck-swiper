@@ -1,10 +1,11 @@
 "use client";
 import * as React from 'react';
 
-import { DirectionEnum } from '../constants.ts';
-import type { EventType, EventReturnType } from "../types.ts";
-import { getEvent,
+import { DirectionType } from '../constants.ts';
+import type { EventReturnType, EventType } from "../types.ts";
+import {
     getDirection,
+    getEvent,
     getLimitOffset,
     getOffset,
     withX,
@@ -30,12 +31,12 @@ export interface SwipeableWrapperProps {
     children: React.ReactNode,
     renderButtons?: (payload: RenderButtonsPayload) => React.ReactNode;
     onBeforeSwipe?: (
-        forceSwipe: (direction: DirectionEnum) => void,
+        forceSwipe: (direction: DirectionType) => void,
         cancelSwipe: () => void,
-        direction: DirectionEnum,
+        direction: DirectionType,
     ) => void,
     onSwipe?: (
-        direction: DirectionEnum,
+        direction: DirectionType,
     ) => void,
     onOpacityChange?: (opacity: number) => void,
     onAfterSwipe?: () => void,
@@ -89,7 +90,7 @@ const SwipeableWrapper = (props: SwipeableWrapperProps) => {
         onAfterSwipe,
     ]);
 
-    const handleOnSwipe = React.useCallback((direction: DirectionEnum) => {
+    const handleOnSwipe = React.useCallback((direction: DirectionType) => {
         if (onSwipe) {
             onSwipe(direction);
         }
@@ -108,14 +109,14 @@ const SwipeableWrapper = (props: SwipeableWrapperProps) => {
         onSwipe,
     ]);
 
-    const handleOnBeforeSwipe = React.useCallback((direction: DirectionEnum) => {
+    const handleOnBeforeSwipe = React.useCallback((direction: DirectionType) => {
         if (!onBeforeSwipe) {
             handleOnSwipe(direction);
             return;
         }
 
         onBeforeSwipe(
-            (_direction: DirectionEnum) => handleOnSwipe(_direction || direction),
+            (_direction: DirectionType) => handleOnSwipe(_direction || direction),
             handleResetState,
             direction,
         );
@@ -172,7 +173,7 @@ const SwipeableWrapper = (props: SwipeableWrapperProps) => {
         }), []);
 
 
-    const handleForceSwipe = React.useCallback((direction: DirectionEnum) => {
+    const handleForceSwipe = React.useCallback((direction: DirectionType) => {
         if (stateRef.current.swiped) {
             return;
         }

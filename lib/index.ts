@@ -1,7 +1,8 @@
-import SwipeableWrapper from './components/wrapper.tsx';
-import { DirectionEnum } from './constants.ts';
+import SwipeAbleWrapper from './components/wrapper.tsx';
+import { DirectionType,Directions } from './constants.ts';
 
 export {
-    SwipeableWrapper as Swipeable,
-    DirectionEnum as direction,
+    SwipeAbleWrapper as SwipeAble,
+    type DirectionType,
+    Directions
 };

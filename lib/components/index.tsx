@@ -6,11 +6,11 @@ import { animated, useSpring } from 'react-spring';
 import { EventReturnType, EventType } from '../types.ts';
 import { SwipeableState, SwipeableWrapperProps } from './wrapper.tsx';
 
-import { DirectionEnum } from '../constants.ts';
+import { DirectionType,Directions } from '../constants.ts';
 import { getOpacity } from '../utils.ts';
 
 export interface SwipeableProps extends SwipeableWrapperProps {
-    handleForceSwipe: (direction: DirectionEnum) => void,
+    handleForceSwipe: (direction: DirectionType) => void,
     handleOnDragStart: (e: EventType) => EventReturnType
     state: SwipeableState,
 }
@@ -85,8 +85,8 @@ const Swipeable = ({
             {
                 renderButtons && (
                     renderButtons({
-                        right: () => handleForceSwipe(DirectionEnum.RIGHT),
-                        left: () => handleForceSwipe(DirectionEnum.LEFT),
+                        right: () => handleForceSwipe(Directions.RIGHT),
+                        left: () => handleForceSwipe(Directions.LEFT),
                     })
                 )
             }

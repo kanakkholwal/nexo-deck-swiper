@@ -1,9 +1,9 @@
-import { DirectionEnum } from './constants.ts';
+import { Directions,DirectionType } from './constants.ts';
 import { EventType } from './types.ts';
 
 // Determines direction based on the offset
-export const getDirection = (offset: number): DirectionEnum => (
-  offset > 0 ? DirectionEnum.RIGHT : DirectionEnum.LEFT
+export const getDirection = (offset: number): DirectionType => (
+  offset > 0 ? Directions.RIGHT : Directions.LEFT
 );
 
 // Calculates offset with a scaling factor
@@ -21,8 +21,8 @@ export const getEvent = (e: EventType): MouseEvent | Touch => {
 export const withX = (fn: (x: number) => void) => (e: EventType) => fn(getEvent(e).pageX);
 
 // Gets the limited offset based on direction
-export const getLimitOffset = (limit: number, direction: DirectionEnum): number => (
-  direction === DirectionEnum.RIGHT ? limit : -limit
+export const getLimitOffset = (limit: number, direction: DirectionType): number => (
+  direction === Directions.RIGHT ? limit : -limit
 );
 
 // Calculates opacity based on offset, limit, and minimum offset
